@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-userRegistered = false;
+userRegistered = {};
   emailPattern = "^[a-z0-9._%=-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
   constructor(private quizService: QuizService, private route: Router) { }
 
@@ -20,8 +20,9 @@ userRegistered = false;
   //Normal the above registeredUser method of quizService will return an observable which we will by subscribing it. 
   //This we will continue in our future demos.
     this.userRegistered = this.quizService.registeredUser(name, email);
+    console.log('userrrrrr',this.userRegistered);
     if(this.userRegistered){
-      var data = '';
+      var data = this.userRegistered;
       localStorage.clear();
       localStorage.setItem('participant', JSON.stringify(data));
       this.route.navigate(['/quiz']);

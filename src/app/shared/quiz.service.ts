@@ -32,10 +32,12 @@ correctAnswerCount : number = 0;
 registeredUser(name: string, email:string){
   var body = {
     Name: 'Alok Rai',//name,
-    Email: 'alokrai319@gmail.com'
+    Email: 'alokrai319@gmail.com',
+    bool: false
   }
   if(name===body.Name && email===body.Email){
-    return true;
+    body.bool = true;
+    return body;
   }else{
     return false;
   }
